@@ -55,12 +55,10 @@ RUN curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOS
 	&& chmod +x /usr/local/bin/docker-compose
 
 
- ####install jenkins 
-RUN apt-get install -qy openjdk-8-jdk
-
+# Jenkins installation 
 RUN useradd -m -s /bin/bash jenkins
 RUN echo "jenkins:jenkins" | chpasswd
-RUN wget https://get.jenkins.io/war/2.265/jenkins.war 
+RUN wget https://get.jenkins.io/war/2.266/jenkins.war 
 ENTRYPOINT ["init.sh"] 
 CMD tail -f /dev/null
 
@@ -71,5 +69,7 @@ CMD tail -f /dev/null
 # # USER jenkins
 
 
-# docker run --rm -it --privileged yossie17/jenkinsdocker_ubuntudind:vtest
-#docker run -it -p 8080:8080 --privileged yossie17/jenkinsdocker_ubuntudind:v4
+
+
+
+

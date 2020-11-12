@@ -2,13 +2,13 @@ version: "3"
 
 services:
     jenkins:
-        container_name: jenkins-master
-        image: yossie17/jenkinsdocker_ubuntudind:v1
+        container_name: jenkins-dind
+        image: yossie17/jenkinsdocker_ubuntudind:v2
         ports: 
             - '8080:8080'
             - '50000:50000'
         volumes: 
-            - jenkins_home:/var/jenkins_home
+            - jenkins_home:/root/.jenkins
         restart: always
         privileged: true
         # command: ["startup.sh]
